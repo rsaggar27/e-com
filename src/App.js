@@ -8,19 +8,22 @@ import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
 import Cart from "./pages/cart/Cart";
 import Products from "./pages/products/Products";
+import { useSelector } from "react-redux"
 
 const App = () => {
+
+  const isLoggIn = useSelector((state) => state.auth.isLoggIn)
+  const cartItems = useSelector((state) => state.cart.itemsList)
   return (
     <>
       <Router>
-        <Header />
         <Routes>
-          <Route  path="/" element={< Home />} />
+          <Route  path="/" element={<><Header />< Home /></>} />
           <Route  path="/login" element={<Login />} />
           <Route  path="/register" element={<Register />} />
-          <Route  path="/products" element={<Products />} />
-          <Route  path="/cart" element={<Cart />} />
-          <Route  path="/profile" element={<Profile />} />
+          <Route  path="/products" element={<><Header /><Products /></>} />
+          <Route  path="/cart" element={<><Header /><Cart /></>} />
+          <Route  path="/profile" element={<><Header /><Profile /></>} />
         </Routes>
         <Footer />
       </Router>

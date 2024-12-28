@@ -156,7 +156,7 @@ export default function Register(props) {
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
-      <ColorModeSelect sx={{ position: "fixed", top: "1rem", right: "1rem" }} />
+      {/* <ColorModeSelect sx={{ position: "fixed", top: "1rem", right: "1rem" }} /> */}
       <RegisterContainer direction="column" justifyContent="space-between">
         <Card variant="outlined">
           <img src={Logo} className="logo-img" alt="" />

@@ -1,8 +1,9 @@
 import React from 'react'
+import { MDBFooter } from 'mdb-react-ui-kit';
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <></>
   )
 }
 

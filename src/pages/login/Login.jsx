@@ -121,9 +121,9 @@ export default function Login(props) {
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
       <LoginContainer direction="column" justifyContent="space-between">
-        <ColorModeSelect
+        {/* <ColorModeSelect
           sx={{ position: "fixed", top: "1rem", right: "1rem" }}
-        />
+        /> */}
         <Card variant="outlined">
           <img src={Logo} className="logo-img" alt="" />
 

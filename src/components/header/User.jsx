@@ -5,10 +5,16 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { GrHelp } from "react-icons/gr";
 import { BiLogOut } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
+import { authActions } from "../../store/authSlice"
+import { useSelector } from "react-redux"
+
 
 const User = () => {
-  const user = true;
+
+  const isLoggIn = useSelector((state) => state.auth.isLoggIn)
+  // console.log(isLoggIn);
+  const user = isLoggIn
   const [profileOpen, setProfileOpen] = useState(false);
 
   const close = () => {
@@ -17,8 +23,12 @@ const User = () => {
 
   const navigate = useNavigate();
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
+  const logoutHandler = (e) => {
+    dispatch(authActions.logout())
+  }
+  
   return (
     <>
       <div className="profile">
@@ -66,7 +76,7 @@ const User = () => {
                   <GrHelp className="icon" />
                   <h4>Help</h4>
                 </button>
-                <button className="box">
+                <button className="box" onClick={logoutHandler}>
                   <BiLogOut className="icon" />
                   <h4>Log Out</h4>
                 </button>
